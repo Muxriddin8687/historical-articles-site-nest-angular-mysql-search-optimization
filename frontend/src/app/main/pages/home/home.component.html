@@ -1,0 +1,17 @@
+<app-filter></app-filter>
+
+<div class="container">
+    <h2 class="mt-4 mb-3 text-center">Maqolalar</h2>
+
+    <ng-container *ngFor="let item of articleList$ | async">
+        <div class="card shadow mb-5">
+            <div class="card-body">
+                <div class="card-title">
+                    <a routerLink="{{ item.id }}"><h4 class="mb-0">{{ item.title }}</h4></a>
+                </div>
+                <div class="card-text fs-6" [innerHTML]="item.text"></div>
+                <p class="mb-0 fw-bolder">{{ item.author }}</p>
+            </div>
+        </div>
+    </ng-container>
+</div>

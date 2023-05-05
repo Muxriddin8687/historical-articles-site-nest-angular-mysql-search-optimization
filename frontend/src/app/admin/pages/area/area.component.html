@@ -1,0 +1,46 @@
+<div class="container">
+
+    <div class="pt-3 mb-5">
+        <h3>Hududlar</h3>
+        <hr class="my-0">
+    </div>
+
+    <div class="row">
+
+        <div class="col-11 col-sm-11 col-md-6 mx-auto">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover border mb-0">
+                    <thead>
+                        <tr>
+                            <th width="25px">№</th>
+                            <th>Nomi</th>
+                            <th width="25px"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of filter; let i = index">
+                            <td width="25px">{{ i + 1 }}</td>
+                            <td (click)="changeFilter(item.id)">{{ item.name }}</td>
+                            <td width="25px">
+                                <button (click)="delete(item.id)" class="btn btn-danger btn-sm px-2"><i
+                                        class="fa fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-11 col-sm-11 col-md-6 mx-auto">
+            <form #f="ngForm" (ngSubmit)="update(f)">
+                <input type="hidden" name="id" [(ngModel)]="id">
+                <input type="text" name="name" [(ngModel)]="name" placeholder="Nomini kiriting" class="form-control"
+                    required minlength="3">
+                <div class="d-block text-end my-4">
+                    <button type="reset" class="btn btn-warning me-2">Tozalash</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Saqlash</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

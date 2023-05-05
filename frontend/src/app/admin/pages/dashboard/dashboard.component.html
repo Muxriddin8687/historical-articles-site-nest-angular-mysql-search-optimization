@@ -1,0 +1,40 @@
+<div class="container-fluid">
+
+    <div class="pt-3 mb-5">
+        <h3>Xabarlar</h3>
+        <hr class="my-0">
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-hover border mb-0">
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Ism</th>
+                    <th>Email</th>
+                    <th>Telefon</th>
+                    <th>Fayl</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of message; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.email }}</td>
+                    <td>{{ item.phone }}</td>
+                    <td>
+                        <a [href]="'./assets/files/' + item.file" download>
+                            <button type="button" class="btn btn-primary btn-floating">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </a>
+                    </td>
+                    <td>
+                        <button (click)="delete(item.id, item.file)" class="btn btn-danger btn-sm px-2"><i class="fa fa-trash"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

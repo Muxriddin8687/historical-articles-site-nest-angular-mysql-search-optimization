@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="pt-3 mb-5">
+        <h3 class="d-inline">Tahrirlash</h3>
+        <hr class="mb-0">
+    </div>
+</div>
+
+<form #f="ngForm" (ngSubmit)="update(f)">
+    <div class="container pb-5">
+        <div class="row">
+            <!-- filters -->
+            <div class="mx-auto col-11 col-sm-10 col-md-6">
+                <select name="category_id" [(ngModel)]="category_id" class="form-select mb-4">
+                    <option value="0" disabled>Kategoryalar</option>
+                    <option *ngFor="let item of category" [value]="item.id">{{ item.name }}</option>
+                </select>
+            </div>
+            <div class="mx-auto col-11 col-sm-10 col-md-6">
+                <select name="group_id" [(ngModel)]="group_id" class="form-select mb-4">
+                    <option value="0" disabled>Guruhlar</option>
+                    <option *ngFor="let item of group" [value]="item.id">{{ item.name }}</option>
+                </select>
+            </div>
+            <div class="mx-auto col-11 col-sm-10 col-md-6">
+                <select name="area_id" [(ngModel)]="area_id" class="form-select mb-;l.k,mn 4">
+                    <option value="0" disabled>Hududlar</option>
+                    <option *ngFor="let item of area" [value]="item.id">{{ item.name }}</option>
+                </select>
+            </div>
+            <div class="mx-auto col-11 col-sm-10 col-md-6">
+                <select name="author_id" [(ngModel)]="author_id" class="form-select mb-4">
+                    <option value="0" disabled>Mualliflar</option>
+                    <option *ngFor="let item of author" [value]="item.id">{{ item.name }}</option>
+                </select>
+            </div>
+
+            <!-- information -->
+            <div class="mx-auto col-11 col-sm-10 col-md-12">
+                <input type="text" name="title" [(ngModel)]="title" class="form-control mb-4" placeholder="Sarlavha">
+            </div>
+            <div class="mx-auto col-11 col-sm-10 col-md-12">
+                <input type="text" name="descriptions" [(ngModel)]="descriptions" class="form-control mb-4" placeholder="Kalit so'zlar">
+            </div>
+            <div class="mx-auto col-11 col-sm-10 col-md-12">
+                <input type="text" name="years" [(ngModel)]="years" class="form-control mb-4" placeholder="Maqola qamrovidagi yillar: 2000, 2001, 2005..">
+            </div>
+            
+            <div class="mx-auto col-11 col-sm-10 col-md-12">
+                <div class="NgxEditor__Wrapper mb-4" style="min-height: 250px;">
+                    <ngx-editor-menu [editor]="editor" [toolbar]="editorToolbar"></ngx-editor-menu>
+                    <ngx-editor [editor]="editor" name="text" [(ngModel)]="text" minlength="3" required></ngx-editor>
+                </div>
+            </div>
+
+            <div class="d-block text-end">
+                <button type="submit" class="btn btn-primary">Saqlash</button>
+            </div>
+
+        </div>
+    </div>
+</form>

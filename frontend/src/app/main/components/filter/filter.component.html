@@ -1,0 +1,58 @@
+<div class="container py-3">
+    <div class="d-flex align-items-center justify-content-between">
+        <button data-mdb-toggle="modal" data-mdb-target="#setFilterModal" type="button" class="btn btn-primary">
+            <i class="fa fa-filter"></i>
+        </button>
+        <input class="form-control w-auto" type="search" placeholder="Qidrish" #searchText>
+    </div>
+</div>
+
+<!-- filter modal -->
+<div class="modal fade" id="setFilterModal" tabindex="-1" aria-labelledby="setFilterModalLabel" aria-hidden="true" data-mdb-backdrop="static" data-mdb-keyboard="true">
+    <div class="modal-dialog static">
+        <form #fs="ngForm" (ngSubmit)="filter(fs)">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title mx-auto" id="setFilterModalLabel">Saralash</h5>
+                </div>
+                <div class="modal-body">
+
+                    <div class="mb-4">
+                        <select class="w-100" name="category" ngModel id="category" multiple multiselect-search="true"
+                            multiselect-select-all="true" multiselect-max-items="4" placeholder="Kategoriylar">
+                            <option *ngFor="let item of categoryList$ | async" [value]="item.id">{{ item.name }}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <select class="w-100" name="group" ngModel id="group" multiple multiselect-search="true"
+                            multiselect-select-all="true" multiselect-max-items="4" placeholder="Guruhlar">
+                            <option *ngFor="let item of groupList$ | async" [value]="item.id">{{ item.name }}</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <select class="w-100" name="area" ngModel id="area" multiple multiselect-search="true"
+                            multiselect-select-all="true" multiselect-max-items="4" placeholder="Hududlar">
+                            <option *ngFor="let item of areaList$ | async" [value]="item.id">{{ item.name }}</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <select class="w-100" name="author" ngModel id="author" multiple multiselect-search="true"
+                            multiselect-select-all="true" multiselect-max-items="4" placeholder="Mualliflar">
+                            <option *ngFor="let item of authorList$ | async" [value]="item.id">{{ item.name }}</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger me-2" data-mdb-dismiss="modal">Yopish</button>
+                    <button type="reset" (click)="fs.reset()" class="btn btn-warning me-2">Tozalash</button>
+                    <button type="submit" data-mdb-dismiss="modal" [disabled]="fs.invalid" class="btn btn-success">Saqlash</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

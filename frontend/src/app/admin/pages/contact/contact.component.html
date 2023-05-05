@@ -1,0 +1,28 @@
+<div class="container mb-5">
+
+    <div class="pt-3 mb-5">
+        <h3>Biz haqimizda</h3>
+        <hr class="my-0">
+    </div>
+
+    <form #f="ngForm" (ngSubmit)="save(f)">
+        <div class="row">
+
+            <div class="mx-auto col-11 col-sm-12 col-md-4">
+                <input name="phone" [(ngModel)]="phone" placeholder="Telefon raqam" type="text" class="form-control mb-4" required minlength="5">
+            </div>
+            <div class="mx-auto col-11 col-sm-12 col-md-4">
+                <input name="email" [(ngModel)]="email" placeholder="Emailingizni kiriting" type="email" class="form-control mb-4" required minlength="5">
+            </div>
+            <div class="mx-auto col-11 col-sm-12 col-md-4">
+                <input name="telegram" [(ngModel)]="telegram" placeholder="telegram linkni" type="text" class="form-control mb-4" required minlength="5">
+            </div>
+            <div class="mx-auto col-11 col-sm-12 col-md-12">
+                <textarea name="text" [(ngModel)]="text" rows="5" placeholder="Matn" class="form-control mb-4" required minlength="5"></textarea>
+            </div>
+
+        </div>
+        <button [disabled]="f.invalid" type="submit" class="btn btn-primary ms-auto d-block">Saqlash</button>
+    </form>
+
+</div>

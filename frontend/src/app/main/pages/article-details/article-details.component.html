@@ -1,0 +1,8 @@
+<div class="container py-5">
+    <h4>{{ article[0]['title'] }}</h4>
+    <div [innerHTML]="article[0]['text']"></div>
+    <div class="d-flex mt-3 justify-content-between align-items-center">
+        <p class="mb-0">{{ article[0]['author'] }} {{ article[0]['date'] | date: 'dd.MMMM.YYYY' }}</p>
+        <a routerLink="/main/article" class="btn btn-primary">Orqaga</a>
+    </div>
+</div>
