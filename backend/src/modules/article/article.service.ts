@@ -43,6 +43,10 @@ export class ArticleService {
             'FROM `article` AS a, `author` AS m ' +
             `WHERE ${area + author + category + group}`;
 
+        if (area.length > 3 || author.length > 3 || category.length > 3 || group.length > 3) {
+            sql += ' AND a.author_id=m.id';
+        }
+
         const articles = await this.con.query(sql);
         return articles[0];
     }
